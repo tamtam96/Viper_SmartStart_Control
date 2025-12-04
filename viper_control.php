@@ -41,7 +41,18 @@ if(defined('STDIN') ){
 		echo "Error: " . $result->Return->ResponseSummary->ErrorMessage ;
 	}
 }
-else{ 
+else{ >>> import requests
+>>> r = requests.get('https://httpbin.org/basic-auth/user/pass', auth=('user', 'pass'))
+>>> r.status_code
+200
+>>> r.headers['content-type']
+'application/json; charset=utf8'
+>>> r.encoding
+'utf-8'
+>>> r.text
+'{"authenticated": true, ...'
+>>> r.json()
+{'authenticated': True, ...}
   	$sessionID = getSessionID($smartstart_username,$smartstart_password);
 	$vehicles = getVehicles($sessionID);
 	$vehicleID = getVehicleID(0);
